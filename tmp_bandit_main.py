@@ -18,7 +18,7 @@ from sklearn.linear_model import SGDClassifier
 import time
 np.random.seed(71)
 
-class Logistic_bandit(object):
+class Thompson_logistic(object):
     def __init__(self,x_dim,dim,arm_num,lam=0.1,w_true=None):
         self.x_dim = x_dim
         self.arm_num = arm_num
@@ -109,7 +109,7 @@ class Logistic_bandit(object):
             x[self.x_dim + self.arm_num + j + self.x_dim * arm] = x[j]
         return x
 
-class Egreedy(object):
+class Egreedy_logistic(object):
     def __init__(self,x_dim,dim,arm_num,w,w_true=None,epsilon=0.1):
         self.x_dim = x_dim
         self.arm_num = arm_num
@@ -171,10 +171,10 @@ random_results = np.zeros_like(ts_results)
 egreedy_arms = np.zeros_like(ts_arms)
 egreedy_results = np.zeros_like(ts_results)
 
-ts = Logistic_bandit(x_dim,dim,arm_num,lam,w_true)
+ts = Thompson_logistic(x_dim,dim,arm_num,lam,w_true)
 lr_sgd_random = SGDClassifier(loss="log",alpha = lam , penalty = "l2")
 lr_sgd_egreedy = SGDClassifier(loss="log",alpha = lam , penalty = "l2")
-eg = Egreedy(x_dim,dim,arm_num,m,w_true,epsilon)
+eg = Egreedy_logistic(x_dim,dim,arm_num,m,w_true,epsilon)
 
 stack_random_X = np.zeros((1,dim))
 stack_egreedy_X = np.zeros((1,dim))
