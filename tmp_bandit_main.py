@@ -10,6 +10,7 @@
 # I generated sample input and reward
 # I considered interaction between features (included action fields)
 # Online logisic regression of SGDClassifier will be updated to Laplace approximation
+# Evaluation score will be calculated by regret
 
 import numpy as np
 from scipy.optimize import minimize
