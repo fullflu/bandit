@@ -1,2 +1,2 @@
 # bandit
-bandit
+implement famous bandit algorithms
