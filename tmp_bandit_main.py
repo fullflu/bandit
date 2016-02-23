@@ -153,7 +153,7 @@ class Egreedy_logistic(object):
 
 
 start = time.time()
-m = np.ones(dim) ;q = np.ones(dim)*lam
+m = np.zeros(dim) ;q = np.ones(dim)*lam
 T = 1000;n = 15
 arm_num = 10
 lam = 0.1; x_dim = 2; dim = x_dim + arm_num + arm_num*x_dim
