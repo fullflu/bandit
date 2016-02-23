@@ -10,7 +10,7 @@
 # I generated sample input and reward
 # I considered interaction between features (included action fields)
 # Online logisic regression of SGDClassifier will be updated to Laplace approximation
-# Evaluation score will be calculated by regret
+# Evaluation score will be updated to regret
 
 import numpy as np
 from scipy.optimize import minimize
@@ -103,7 +103,7 @@ class Thompson_logistic(object):
         proba = self.predict_proba(x,self.w_true)[1]
         return np.random.binomial(1,proba)
 
-    def feature_embid(self,x,arm):
+    def feature_embed(self,x,arm):
         x[self.x_dim + arm] = 1.
         for j in range(self.x_dim):
             x[self.x_dim + self.arm_num + j + self.x_dim * arm] = x[j]
@@ -145,7 +145,7 @@ class Egreedy_logistic(object):
         else:
             return np.random.randint(0,self.arm_num)
 
-    def feature_embid(self,x,arm):
+    def feature_embed(self,x,arm):
         x[self.x_dim + arm] = 1.
         for j in range(self.x_dim):
             x[self.x_dim + self.arm_num + j + self.x_dim * arm] = x[j]
@@ -199,12 +199,12 @@ for t in range(T):
         ts_arm = ts.select_arm_conjugated(ts_X[j])
 
         random_arm = np.random.randint(0,arm_num)
-        random_X[j] = ts.feature_embid(ts_X[j],random_arm) 
+        random_X[j] = ts.feature_embed(ts_X[j],random_arm) 
 
         egreedy_arm = eg.select_arm(ts_X[j])
-        egreedy_X[j] = eg.feature_embid(ts_X[j],egreedy_arm)
+        egreedy_X[j] = eg.feature_embed(ts_X[j],egreedy_arm)
 
-        ts_X[j] = ts.feature_embid(ts_X[j],ts_arm)
+        ts_X[j] = ts.feature_embed(ts_X[j],ts_arm)
         #X[j,dim-arm_num+arm] = 1. 
         ts_y[j] = ts.sample_label(ts_X[j])
         ts_arms[t*n + j] = ts_arm
