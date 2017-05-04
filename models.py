@@ -143,7 +143,7 @@ for strategy in strategy_list:
 
     regrets = get_regret()
     cum_regrets = np.cumsum(regrets)
-    np.save("regret_" + strategy , cum_regrets)
+    np.save("results/regret_" + strategy , cum_regrets)
     plt.plot(cum_regrets, label = strategy)
 plt.legend(loc="best")
 plt.savefig("figures/regret_bernoulli.png")
