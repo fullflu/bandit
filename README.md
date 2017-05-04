@@ -10,7 +10,7 @@ implement famous bandit algorithms
 
 Simple test result is: 
 
-!["regret_bernoulli.pdf"](https://github.com/fullflu/bandit/blob/master/figures/regret_bernoulli.pdf)
+!["regret_bernoulli.pdf"]("https://github.com/fullflu/bandit/blob/master/figures/regret_bernoulli.pdf")
 
 
 ## Contextual Bandit
