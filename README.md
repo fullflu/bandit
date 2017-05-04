@@ -10,7 +10,8 @@ implement famous bandit algorithms
 
 Simple test result is: 
 
-<img src="https://github.com/fullflu/bandit/blob/master/figures/regret_bernoulli.png" width="400px" align="right">
+<img src="https://github.com/fullflu/bandit/blob/master/figures/regret_bernoulli.png">
+
 
 
 ## Contextual Bandit
