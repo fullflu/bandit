@@ -146,7 +146,7 @@ for strategy in strategy_list:
     np.save("regret_" + strategy , cum_regrets)
     plt.plot(cum_regrets, label = strategy)
 plt.legend(loc="best")
-plt.savefig("regret_bernoulli.pdf")
+plt.savefig("figures/regret_bernoulli.png")
 
 
 
