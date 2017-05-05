@@ -5,7 +5,7 @@ implement famous bandit algorithms
 
 I checked algorithms in the following environment:
 
-* OS X(10.9+), CPU
+* OS X (10.9+), CPU
 * python (2.7.11)
 * numpy (1.11.3)
 * matplotlib (1.4.3)

@@ -131,11 +131,11 @@ def visualize_regret(mode):
     for strategy in strategy_list:
         cum_regrets = np.load("results/regret_" + strategy + ".npy")
         plt.plot(cum_regrets, label = strategy)
-        max_num = max(max_num, max(cum_regrets))
+        max_num = max(max_num, cum_regrets[-1])
     #asymptoic_lower_bounds = [sum([(true_params[0] - true_params[k]) * (np.log(t) - np.log(100))/ (kl(true_params[k], true_params[0]) ) for k in range(1,arm_num)]) for t in range(1, int(T))]
     #ab=[0.1*99/kl(0.4,0.5) * (np.log(t) - np.log(100)) for t in range(int(T))]
     ab = get_asymptoic_lower_bound(mode)
-    max_num = max(max(ab), max_num)
+    max_num = max(ab[-1], max_num)
     plt.plot(ab, label = "asymptoic bound")
     #plt.xticks([1e2,1e3,1e4,1e5], ["1e2", "1e3", "1e4", "1e5"])
     xticks_name = ["1e" + str(t) for t in range(2, int(np.log10(T)))]
